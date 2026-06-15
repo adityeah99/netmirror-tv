@@ -5,10 +5,10 @@ import { DOWNLOAD_PAGE } from "../config";
 const { href = DOWNLOAD_PAGE } = Astro.props;
 const APK_SIZE = "49 MB";
 const devices = [
-  { icon: "🔥", name: "Fire TV Stick", spec: "Fire OS 6.0+", note: "Optimized for the Firestick remote" },
-  { icon: "📺", name: "Android TV", spec: "Android TV 7.0+", note: "Native big-screen build" },
-  { icon: "▶️", name: "Google TV", spec: "Google TV", note: "Chromecast with Google TV ready" },
-  { icon: "🖥️", name: "Smart TV", spec: "Android-based TVs", note: "Mi TV, OnePlus, Sony & more" },
+  { logo: "/brands/amazon.svg", name: "Fire TV Stick", spec: "Fire OS 6.0+", note: "Optimized for the Firestick remote" },
+  { logo: "/brands/android.svg", name: "Android TV", spec: "Android TV 7.0+", note: "Native big-screen build" },
+  { logo: "/brands/googletv.svg", name: "Google TV", spec: "Google TV", note: "Chromecast with Google TV ready" },
+  { logo: "/brands/smarttv.svg", name: "Smart TV", spec: "Android-based TVs", note: "Mi TV, OnePlus, Sony & more" },
 ];
 const steps = [
   { n: 1, t: "Allow unknown apps", d: "In Settings → Security, turn on installs from unknown sources." },
@@ -33,7 +33,9 @@ const trust = ["VirusTotal verified", "SHA-256 published", "No signup", `${APK_S
     <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {devices.map((d) => (
         <div class="flex flex-col rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
-          <div class="text-3xl">{d.icon}</div>
+          <div class="flex h-9 items-center">
+            <img src={d.logo} alt={`${d.name} logo`} loading="lazy" class="h-8 w-auto max-w-[60%] object-contain" />
+          </div>
           <h3 class="mt-4 text-lg font-bold text-fg">{d.name}</h3>
           <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-neon">{d.spec}</p>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{d.note}</p>
