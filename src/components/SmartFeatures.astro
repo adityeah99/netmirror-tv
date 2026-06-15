@@ -1,0 +1,40 @@
+---
+// SmartFeatures.astro — advanced app-level features
+const features = [
+  { icon: "🗂️", title: "Unified multi-OTT library", body: "Netflix, Prime, Hotstar, Zee5 and 50+ platforms in one place. Duplicate titles are merged with 'Available on' badges." },
+  { icon: "🔍", title: "Universal smart search", body: "One search bar scans every platform. Filter by language, year, IMDb rating, runtime and mood." },
+  { icon: "✨", title: "AI 'For You' picks", body: "Smart suggestions from your watch history and favourite genres — 'Because you watched…' rows that actually fit." },
+  { icon: "🎭", title: "Mood & quick discovery", body: "One-tap moods like Chill Night, Binge Weekend, Intense Thriller and Family Time to find something fast." },
+  { icon: "📄", title: "Rich title pages", body: "Full synopsis, cast with photos, crew, aggregated ratings, a trailer button and a similar-titles carousel." },
+  { icon: "⏯️", title: "Continue watching & sync", body: "A progress carousel on home, synced across TV, web and app with an optional lightweight account." },
+  { icon: "🆕", title: "Just dropped & trending", body: "Same-day releases highlighted, plus a real cross-platform Top 10 — global and regional." },
+  { icon: "👨‍👩‍👧", title: "Profiles & parental controls", body: "Separate profiles for the family, PIN protection, age-rating locks and a kids mode." },
+  { icon: "📋", title: "Playlists & collections", body: "Build your own lists like 'My 2026 Must-Watch' and share them with a link." },
+  { icon: "🔁", title: "Intelligent server failover", body: "If one server slows down, the app auto-switches to a backup so playback never stalls." },
+  { icon: "💬", title: "Custom subtitles & audio", body: "Switch audio tracks live and style subtitles — font size, colour, background opacity and position." },
+  { icon: "📉", title: "Low data mode", body: "Auto-lower quality and compressed thumbnails for slow networks — a data saver tuned for India." },
+];
+---
+
+<section id="smart-features" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Smart Features</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
+      More than just a streaming app
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      Under the hood, NetMirror TV is built to help you actually find and enjoy what you want —
+      across every platform, on every device.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-2xl shadow-sm">{f.icon}</div>
+          <h3 class="mt-5 text-lg font-bold text-fg">{f.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
