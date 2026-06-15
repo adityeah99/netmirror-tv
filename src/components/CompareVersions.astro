@@ -1,0 +1,52 @@
+---
+// CompareVersions.astro — NetMirror TV APK vs Web vs Phone Cast
+const cols = ["NetMirror TV APK", "Web Version", "Phone Cast"];
+const rows = [
+  { label: "Best for", values: ["Daily Android TV use", "Samsung / LG TVs", "Occasional use"] },
+  { label: "D-pad / Remote", values: ["Native", "Limited", "Phone as remote"] },
+  { label: "Signup needed", values: ["No", "Yes", "No"] },
+  { label: "Phone battery drain", values: ["None", "None", "Yes"] },
+  { label: "UI quality on TV", values: ["Fully optimised", "Browser UI", "Mirrored"] },
+];
+---
+
+<section id="versions" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Which version?</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      APK vs Web vs Phone Cast
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      Three ways to watch NetMirror TV on your television. For most people the APK is the best
+      experience — but if you're on a Samsung Tizen or LG webOS TV, the web version or casting is the way.
+    </p>
+
+    <div class="mt-10 overflow-x-auto rounded-2xl border border-line">
+      <table class="w-full min-w-[640px] text-left text-sm">
+        <thead>
+          <tr class="border-b border-line bg-ink-2">
+            <th class="px-5 py-4 font-semibold text-muted">Feature</th>
+            {cols.map((c, i) => (
+              <th class={`px-5 py-4 font-bold ${i === 0 ? "text-neon" : "text-fg"}`}>
+                {c}
+                {i === 0 && <span class="ml-2 rounded-full bg-neon px-2 py-0.5 text-[10px] font-bold uppercase text-white">Best</span>}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, ri) => (
+            <tr class={ri % 2 === 1 ? "bg-ink-2/50" : ""}>
+              <td class="px-5 py-4 font-semibold text-fg">{r.label}</td>
+              {r.values.map((v, ci) => (
+                <td class={`px-5 py-4 ${ci === 0 ? "font-semibold text-fg" : "text-muted"}`}>{v}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-4 text-xs text-muted">Samsung Tizen & LG webOS don't support sideloaded APKs — use the web version (net11.cc) or cast from your phone.</p>
+  </div>
+</section>

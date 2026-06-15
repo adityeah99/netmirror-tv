@@ -1,46 +1,41 @@
 ---
-// Features.astro — NetMirror TV Features
+// Features.astro — NetMirror TV main features (TV-optimised)
 const features = [
-  {
-    icon: "🎬",
-    title: "HD, Full HD & 4K Streaming",
-    body: "Crystal clear picture quality with immersive audio. Enjoy your favorite content exactly the way it was meant to be seen — on the big screen.",
-  },
-  {
-    icon: "⚡",
-    title: "Fast & Stable Servers",
-    body: "Multiple high-speed servers ensure minimal buffering even during peak hours. Switch servers instantly if needed.",
-  },
-  {
-    icon: "⬇️",
-    title: "Offline Downloads",
-    body: "Download movies and shows directly on your TV storage and watch later without internet. Perfect for power cuts or travel.",
-  },
-  {
-    icon: "🛡️",
-    title: "Safe & Lightweight",
-    body: "Minimal permissions and optimized performance. Designed to run smoothly on all supported TV devices.",
-  },
-  {
-    icon: "🎮",
-    title: "Remote-Friendly Design",
-    body: "Fully optimized for TV remotes. Easy navigation, big buttons, and smooth scrolling — no mouse or keyboard needed.",
-  },
-  {
-    icon: "🔥",
-    title: "Firestick Ready",
-    body: "One-click installation support on Amazon Fire TV Stick. Works flawlessly with Downloader app.",
-  },
+  { icon: "🖥️", title: "TV-redesigned UI", body: "A clean layout built for the big screen — a left sidebar for Home, Movies, Series and all OTT sources." },
+  { icon: "🃏", title: "Big poster tiles", body: "Posters 2–3× larger than the phone app, so you can read titles clearly from across the room." },
+  { icon: "🎮", title: "D-pad & remote control", body: "Every element is focusable. Drive the whole app with your remote's arrow keys — no mouse or keyboard." },
+  { icon: "🎯", title: "Red glow focus ring", body: "A bright focus ring shows exactly what you're about to select, so you never lose your place." },
+  { icon: "🔤", title: "Large fonts & subtitles", body: "Big, readable text and subtitles tuned for comfortable viewing from the couch." },
+  { icon: "📺", title: "Up to 1080p Full HD", body: "Crisp Full HD streaming that intelligently upscales on 4K TVs." },
+  { icon: "🎚️", title: "Quality picker", body: "Switch between Auto, 480p, 720p and 1080p anytime, right from the player." },
+  { icon: "🗣️", title: "15+ audio languages", body: "Hindi, Tamil, Telugu, English, Spanish, Portuguese, Turkish, German and more." },
+  { icon: "🆓", title: "Free, no signup", body: "Completely free forever. No account, no login, no payment — just open and watch." },
+  { icon: "🔋", title: "No phone battery drain", body: "Runs directly on your TV, so it never touches your phone's battery." },
+  { icon: "🛡️", title: "VirusTotal verified", body: "Scanned across 65 engines (63/65 clean), with the SHA-256 hash published for every release." },
+  { icon: "📲", title: "Cast from phone", body: "Don't want to install the APK? Cast from your phone to the TV instead." },
 ];
 ---
 
 <section id="features" class="bg-ink-2 py-20 sm:py-24">
   <div class="mx-auto max-w-6xl px-5 sm:px-8">
-    <p class="text-sm font-semibold uppercase tracking-widest text-neon">NetMirror TV Features</p>
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Features</p>
     <h2 class="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-      Everything you need for the big screen.
+      Everything you need for the big screen
     </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      NetMirror TV is the phone app rebuilt for your television — remote-friendly, bigger UI, and a
+      smooth experience on every Android TV, Fire TV Stick and Smart TV.
+    </p>
 
+    <!-- featured UI image -->
+    <figure class="mt-10 overflow-hidden rounded-2xl border border-line bg-ink p-2 shadow-2xl">
+      <img src="/screens/focus.jpg" alt="NetMirror TV interface with the red focus ring on the Play button" width="1280" height="720" loading="lazy" class="w-full rounded-xl" />
+      <figcaption class="px-3 py-3 text-center text-xs text-muted">
+        Remote-friendly UI — the red focus ring shows exactly what's selected.
+      </figcaption>
+    </figure>
+
+    <!-- feature grid -->
     <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {features.map((f) => (
         <div class="rounded-2xl border border-line bg-ink p-6 transition hover:border-neon/50">
