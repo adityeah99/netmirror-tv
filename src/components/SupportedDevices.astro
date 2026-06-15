@@ -1,16 +1,15 @@
 ---
 // SupportedDevices.astro — device compatibility grid
 const devices = [
-  { icon: "🔥", name: "Fire TV Stick", note: "All Lite / 4K / Max" },
-  { icon: "📦", name: "Fire TV Cube", note: "Fire OS 6+" },
-  { icon: "📺", name: "Android TV", note: "Android TV 7.0+" },
-  { icon: "▶️", name: "Google TV", note: "Chromecast w/ Google TV" },
-  { icon: "📡", name: "Chromecast", note: "Cast from the app" },
-  { icon: "🟠", name: "Xiaomi / Mi TV", note: "PatchWall & stock" },
-  { icon: "🔴", name: "OnePlus TV", note: "Oxygen Play" },
-  { icon: "🎬", name: "Sony Bravia", note: "Android-based models" },
-  { icon: "🟡", name: "Realme / TCL / Hisense", note: "Android TV builds" },
-  { icon: "🎮", name: "Nvidia Shield", note: "Android TV Pro" },
+  { logo: "/brands/amazon.svg", name: "Fire TV Stick", note: "All Lite / 4K / Max" },
+  { logo: "/brands/amazon.svg", name: "Fire TV Cube", note: "Fire OS 6+" },
+  { logo: "/brands/android.svg", name: "Android TV", note: "Android TV 7.0+" },
+  { logo: "/brands/googletv.svg", name: "Google TV", note: "incl. Chromecast" },
+  { logo: "/brands/xiaomi.svg", name: "Xiaomi / Mi TV", note: "PatchWall & stock" },
+  { logo: "/brands/oneplus.svg", name: "OnePlus TV", note: "Oxygen Play" },
+  { logo: "/brands/sony.svg", name: "Sony Bravia", note: "Android-based models" },
+  { logo: "/brands/tcl.svg", name: "TCL", note: "Android TV builds" },
+  { logo: "/brands/nvidia.svg", name: "Nvidia Shield", note: "Android TV Pro" },
 ];
 ---
 
@@ -28,7 +27,9 @@ const devices = [
     <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
       {devices.map((d) => (
         <div class="flex flex-col items-center rounded-2xl border border-line bg-ink p-5 text-center transition hover:border-neon/50">
-          <span class="text-3xl">{d.icon}</span>
+          <div class="flex h-12 items-center justify-center">
+            <img src={d.logo} alt={`${d.name} logo`} loading="lazy" class="h-9 w-auto max-w-[80%] object-contain" />
+          </div>
           <h3 class="mt-3 text-sm font-bold text-fg">{d.name}</h3>
           <p class="mt-1 text-xs text-muted">{d.note}</p>
         </div>
@@ -36,8 +37,9 @@ const devices = [
     </div>
 
     <p class="mt-8 text-sm text-muted">
-      Don't see your TV? If it's an <strong class="text-fg">Android-based Smart TV (7.0+)</strong>,
-      it'll almost certainly work — just sideload the APK.
+      Also works on Chromecast, Mi Box, Hisense, Realme and other Android set-top boxes. If it's an
+      <strong class="text-fg">Android-based Smart TV (7.0+)</strong>, it'll almost certainly run —
+      just sideload the APK.
     </p>
   </div>
 </section>
