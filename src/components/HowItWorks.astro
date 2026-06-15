@@ -1,0 +1,33 @@
+---
+// HowItWorks.astro — 3-step overview
+const steps = [
+  { n: 1, icon: "⬇️", title: "Download", body: "Grab the 49 MB NetMirror TV APK for your device from the download button." },
+  { n: 2, icon: "⚙️", title: "Install", body: "Allow unknown apps, open the file and tap Install — it takes under two minutes." },
+  { n: 3, icon: "▶️", title: "Watch", body: "Open the app, pick a movie or show, and start streaming in up to 4K." },
+];
+---
+
+<section id="how-it-works" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">How It Works</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      From download to watching in 3 steps
+    </h2>
+
+    <div class="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+      {steps.map((s) => (
+        <div class="relative rounded-2xl border border-line bg-ink-2 p-6 text-center">
+          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-ink text-2xl shadow-sm">{s.icon}</div>
+          <div class="mt-4 text-xs font-bold uppercase tracking-widest text-neon">Step {s.n}</div>
+          <h3 class="mt-1 text-lg font-bold text-fg">{s.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <a href="#download" class="mt-10 inline-flex items-center gap-2 rounded-full bg-neon px-6 py-3 text-sm font-bold text-white transition hover:brightness-105">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Start with step 1
+    </a>
+  </div>
+</section>

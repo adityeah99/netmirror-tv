@@ -1,0 +1,53 @@
+---
+// WhatIsApk.astro — beginner explainer (SEO + trust)
+const qa = [
+  {
+    q: "What is an APK?",
+    a: "An APK is simply the standard install file for Android apps — the same idea as a .exe on Windows. Android TV, Fire TV Stick and Google TV all run Android, so they install apps from APK files.",
+  },
+  {
+    q: "Why isn't it on the Play Store?",
+    a: "Aggregator apps like NetMirror TV aren't allowed on the official store, so you install the APK directly. Installing an app outside the store is called sideloading — it's completely normal on Android TV and Firestick.",
+  },
+  {
+    q: "Is sideloading safe?",
+    a: "Yes — as long as you download from a trusted source. Every NetMirror TV APK is scanned across 70+ antivirus engines on VirusTotal, its SHA-256 hash is published with each release, and the app asks for only minimal permissions.",
+  },
+];
+const checklist = [
+  "Download only from the official link on this page",
+  "Match the SHA-256 hash before installing",
+  "Keep a VPN on while streaming",
+  "Avoid random 'mirror' or modded versions",
+];
+---
+
+<section id="what-is-apk" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Beginner Guide</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      What is an APK & is sideloading safe?
+    </h2>
+
+    <div class="mt-8 space-y-6">
+      {qa.map((item) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6">
+          <h3 class="text-base font-bold text-fg">{item.q}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted sm:text-base">{item.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-neon-3/30 bg-neon-3/5 p-6">
+      <h3 class="text-base font-bold text-fg">Stay-safe checklist</h3>
+      <ul class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {checklist.map((c) => (
+          <li class="flex items-start gap-2.5 text-sm text-fg/90">
+            <svg class="mt-0.5 h-4 w-4 shrink-0 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {c}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

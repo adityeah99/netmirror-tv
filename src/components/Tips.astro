@@ -1,0 +1,56 @@
+---
+// Tips.astro — Pro Tips (troubleshooting-style cards)
+const tips = [
+  {
+    icon: "🖼️",
+    title: "Get the Best Picture Quality",
+    points: ["Set quality to 1080p / 4K in Settings", "Use a 5GHz Wi-Fi network", "Connect your TV to the router via LAN for 4K"],
+  },
+  {
+    icon: "🔋",
+    title: "Save Data on Limited Plans",
+    points: ["Turn on Data Saver", "Cap streaming at 720p", "Download on Wi-Fi, watch offline later"],
+  },
+  {
+    icon: "⚡",
+    title: "Faster, Smoother Playback",
+    points: ["Pick the Recommended server first", "Close background apps on your TV", "Restart the app once a week"],
+  },
+  {
+    icon: "🎯",
+    title: "Make Navigation Easier",
+    points: ["Add favourites to My List", "Set your Preferred audio once", "Turn on subtitles by default"],
+  },
+];
+---
+
+<section id="tips" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Pro Tips</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Get the most out of NetMirror TV
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      A few quick settings make a big difference on the big screen.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {tips.map((t) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
+          <div class="flex items-center gap-3">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink text-xl shadow-sm">{t.icon}</span>
+            <h3 class="text-lg font-bold text-fg">{t.title}</h3>
+          </div>
+          <ul class="mt-5 space-y-2.5">
+            {t.points.map((p) => (
+              <li class="flex items-start gap-2.5 text-sm text-muted">
+                <svg class="mt-0.5 h-4 w-4 shrink-0 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

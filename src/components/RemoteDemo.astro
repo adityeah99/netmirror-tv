@@ -1,0 +1,194 @@
+---
+// RemoteDemo.astro — interactive "navigate with your remote" showcase
+// Genre artwork lives in /public/posters/. Swap any file with your own
+// (same name) to use real poster images — e.g. public/posters/hollywood.svg → .jpg.
+const tiles = [
+  { label: "Hollywood", count: "8,200+", q: "4K", img: "/posters/hollywood.svg" },
+  { label: "Bollywood", count: "6,400+", q: "HD · 4K", img: "/posters/bolly.svg" },
+  { label: "Regional", count: "9,100+", q: "HD · 4K", img: "/posters/regional.svg" },
+  { label: "K-Dramas", count: "3,800+", q: "HD · 4K", img: "/posters/kdrama.svg" },
+  { label: "Anime", count: "5,300+", q: "HD · 4K", img: "/posters/anime.svg" },
+  { label: "Docs", count: "2,700+", q: "4K", img: "/posters/docs.svg" },
+  { label: "Comedy", count: "1,400+", q: "HD", img: "/posters/comedy.svg" },
+  { label: "Horror", count: "4,600+", q: "HD · 4K", img: "/posters/horror.svg" },
+  { label: "Live Sports", count: "24 live", q: "4K", img: "/posters/sports.svg" },
+  { label: "Web Series", count: "12K+", q: "HD · 4K", img: "/posters/webseries.svg" },
+  { label: "Live TV", count: "300+", q: "HD", img: "/posters/livetv.svg" },
+  { label: "Trending", count: "Daily", q: "4K", img: "/posters/trending.svg" },
+];
+---
+
+<section id="remote-demo" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Remote-Friendly</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Built for your remote, not your thumb.
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      No mouse, no keyboard, no squinting. Try it right here — use the
+      <span class="font-semibold text-fg">D-pad</span> below (or your
+      <span class="font-semibold text-fg">arrow keys</span>) to move around, then hit
+      <span class="font-semibold text-fg">OK</span>.
+    </p>
+
+    <div id="rd" class="mt-12 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_280px]">
+      <!-- TV screen -->
+      <div class="rounded-[1.5rem] border border-line bg-ink p-3 shadow-2xl">
+        <div class="rounded-2xl bg-gradient-to-br from-ink-3 to-ink p-4 sm:p-5">
+          <!-- screen top bar -->
+          <div class="mb-4 flex items-center gap-2">
+            <span class="text-sm font-extrabold tracking-tight">Net<span class="text-neon">Mirror</span></span>
+            <span class="ml-auto text-[11px] text-muted">Home</span>
+          </div>
+          <!-- tile grid -->
+          <div id="rd-grid" class="grid grid-cols-3 gap-2.5 sm:grid-cols-4 sm:gap-3">
+            {tiles.map((t, i) => (
+              <button
+                type="button"
+                data-i={i}
+                data-label={t.label}
+                class="rd-tile group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-xl bg-ink-3 text-left ring-0 transition duration-150"
+              >
+                <img
+                  src={t.img}
+                  alt={`${t.label} on NetMirror TV`}
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span class="absolute left-1.5 top-1.5 rounded bg-black/55 px-1.5 py-0.5 text-[10px] font-semibold text-white/90 backdrop-blur-sm">{t.count}</span>
+                <span class="absolute right-1.5 top-1.5 rounded bg-black/55 px-1.5 py-0.5 text-[9px] font-bold tracking-wide text-white backdrop-blur-sm">{t.q}</span>
+              </button>
+            ))}
+          </div>
+          <!-- status bar -->
+          <div id="rd-status" class="mt-4 flex h-9 items-center justify-center rounded-lg border border-line bg-ink-2 text-xs font-medium text-muted">
+            Use the D-pad to start browsing →
+          </div>
+        </div>
+      </div>
+
+      <!-- Remote -->
+      <div class="mx-auto w-[200px] select-none">
+        <div class="rounded-[2.5rem] border border-line bg-gradient-to-b from-ink-3 to-ink p-5 shadow-2xl">
+          <!-- top buttons -->
+          <div class="flex items-center justify-between px-1">
+            <button data-dir="back" type="button" class="rd-btn flex h-10 w-10 items-center justify-center rounded-full bg-ink-2 text-muted transition hover:text-fg">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a4 4 0 0 1 0 8h-1"/></svg>
+            </button>
+            <button type="button" class="flex h-9 w-9 items-center justify-center rounded-full bg-neon text-white" aria-label="power">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+            </button>
+            <button data-dir="home" type="button" class="rd-btn flex h-10 w-10 items-center justify-center rounded-full bg-ink-2 text-muted transition hover:text-fg">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </button>
+          </div>
+
+          <!-- D-pad -->
+          <div class="relative mx-auto mt-6 h-44 w-44 rounded-full border border-line bg-ink-2">
+            <div class="grid h-full w-full grid-cols-3 grid-rows-3 place-items-center">
+              <div></div>
+              <button data-dir="up" type="button" class="rd-btn flex h-full w-full items-center justify-center text-muted transition hover:text-fg" aria-label="up">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+              </button>
+              <div></div>
+              <button data-dir="left" type="button" class="rd-btn flex h-full w-full items-center justify-center text-muted transition hover:text-fg" aria-label="left">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button data-dir="ok" type="button" class="rd-btn flex h-14 w-14 items-center justify-center rounded-full bg-neon text-xs font-extrabold text-white shadow-lg transition active:scale-95" aria-label="ok">OK</button>
+              <button data-dir="right" type="button" class="rd-btn flex h-full w-full items-center justify-center text-muted transition hover:text-fg" aria-label="right">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+              <div></div>
+              <button data-dir="down" type="button" class="rd-btn flex h-full w-full items-center justify-center text-muted transition hover:text-fg" aria-label="down">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div></div>
+            </div>
+          </div>
+
+          <!-- brand foot -->
+          <div class="mt-6 text-center text-[10px] font-bold uppercase tracking-widest text-muted">NetMirror TV</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initRemote() {
+    const root = document.getElementById("rd");
+    if (!root) return;
+    const grid = document.getElementById("rd-grid");
+    const status = document.getElementById("rd-status");
+    const tiles = Array.from(root.querySelectorAll(".rd-tile"));
+    if (!tiles.length) return;
+
+    // columns depend on breakpoint (3 on mobile, 4 on >=640px)
+    const cols = () => (window.matchMedia("(min-width: 640px)").matches ? 4 : 3);
+    let idx = 0;
+    let kbActive = false;
+
+    const focusCls = ["ring-2", "ring-neon", "ring-offset-2", "ring-offset-ink", "z-10", "scale-[1.05]"];
+
+    function render() {
+      tiles.forEach((t, i) => {
+        if (i === idx) t.classList.add(...focusCls);
+        else t.classList.remove(...focusCls);
+      });
+    }
+
+    function move(dir) {
+      const c = cols();
+      const n = tiles.length;
+      let next = idx;
+      if (dir === "up") next = idx - c;
+      else if (dir === "down") next = idx + c;
+      else if (dir === "left" && idx % c !== 0) next = idx - 1;
+      else if (dir === "right" && idx % c !== c - 1) next = idx + 1;
+      if (next >= 0 && next < n) idx = next;
+      render();
+      const label = tiles[idx].getAttribute("data-label") || "";
+      status.textContent = "Focused: " + label;
+      status.className = status.className.replace("text-muted", "text-fg");
+    }
+
+    function open() {
+      const cur = tiles[idx];
+      const label = cur.getAttribute("data-label") || "";
+      status.textContent = "▶ Opening " + label + "…";
+      cur.animate(
+        [{ transform: "scale(1.05)" }, { transform: "scale(0.96)" }, { transform: "scale(1.05)" }],
+        { duration: 220 }
+      );
+    }
+
+    // remote + tile clicks
+    root.querySelectorAll("[data-dir]").forEach((b) => {
+      b.addEventListener("click", () => {
+        const d = b.getAttribute("data-dir");
+        if (d === "ok") open();
+        else if (d === "back" || d === "home") { idx = 0; render(); status.textContent = "Home"; }
+        else move(d);
+      });
+    });
+    tiles.forEach((t, i) => t.addEventListener("click", () => { idx = i; render(); open(); }));
+
+    // keyboard — only while pointer is over the widget, so page scroll isn't hijacked
+    root.addEventListener("mouseenter", () => (kbActive = true));
+    root.addEventListener("mouseleave", () => (kbActive = false));
+    window.addEventListener("keydown", (e) => {
+      if (!kbActive) return;
+      const map = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", Enter: "ok" };
+      const d = map[e.key];
+      if (!d) return;
+      e.preventDefault();
+      if (d === "ok") open();
+      else move(d);
+    });
+
+    render();
+  }
+
+  initRemote();
+  document.addEventListener("astro:after-swap", initRemote);
+</script>

@@ -1,0 +1,35 @@
+---
+// QuickInfo.astro — NetMirror TV Quick Info table
+const rows = [
+  ["App Name", "NetMirror TV"],
+  ["Category", "Entertainment & Streaming"],
+  ["Compatibility", "Android TV, Firestick, Google TV, Smart TVs"],
+  ["Streaming Quality", "HD, Full HD & 4K"],
+  ["Latest Version", "2.0.8 (June 2026)"],
+  ["License", "Free"],
+  ["Developer", "NetMirror Team"],
+  ["Platforms", "TV, Mobile, Tablet & PC"],
+];
+---
+
+<section id="quick-info" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-3xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Quick Info</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      NetMirror TV – Quick Info
+    </h2>
+
+    <div class="mt-10 overflow-hidden rounded-2xl border border-line">
+      <table class="w-full text-left text-sm sm:text-base">
+        <tbody>
+          {rows.map(([field, value], i) => (
+            <tr class={i % 2 === 0 ? "bg-ink" : "bg-ink-3"}>
+              <th scope="row" class="w-2/5 px-5 py-4 font-semibold text-muted">{field}</th>
+              <td class="px-5 py-4 font-medium text-fg">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

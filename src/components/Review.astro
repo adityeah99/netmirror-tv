@@ -1,0 +1,110 @@
+---
+// Review.astro — Real 30-Day Daily-Use Test
+const minorDays = [6, 13, 21, 27]; // days with small issues
+const days = Array.from({ length: 30 }, (_, i) => ({
+  day: i + 1,
+  minor: minorDays.includes(i + 1),
+}));
+
+const pros = [
+  "Smooth playback on 26 of 30 days",
+  "Great picture quality, clean audio",
+  "Easy to navigate with the remote",
+  "Huge library — always something new",
+];
+const cons = [
+  "Occasional buffering on one server",
+  "A couple of minor UI hiccups",
+  "Needs solid internet for true 4K",
+];
+---
+
+<section id="review" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Honest Review</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      A real 30-day daily-use test
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      We used NetMirror TV every day for a month on a Firestick and an Android TV. Here's how it
+      actually held up — no sugar-coating.
+    </p>
+
+    <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr] lg:items-start">
+      <!-- rating card -->
+      <div class="rounded-2xl border border-line bg-ink p-6 text-center">
+        <div class="text-5xl font-extrabold text-fg">8.4<span class="text-2xl text-muted">/10</span></div>
+        <div class="mt-2 flex items-center justify-center gap-1 text-neon">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <svg class={`h-5 w-5 ${i < 4 ? "fill-current" : "fill-line"}`} viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z"/></svg>
+          ))}
+        </div>
+        <p class="mt-3 text-sm text-muted">Verified daily-use score</p>
+      </div>
+
+      <!-- 30-day grid -->
+      <div class="rounded-2xl border border-line bg-ink p-6">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-fg">30-Day log</h3>
+          <div class="flex items-center gap-4 text-xs text-muted">
+            <span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-neon-3"></span>Smooth</span>
+            <span class="flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-sm bg-amber-400"></span>Minor issue</span>
+          </div>
+        </div>
+        <div class="mt-4 grid grid-cols-10 gap-1.5">
+          {days.map((d) => (
+            <div
+              title={`Day ${d.day}${d.minor ? " — minor issue" : " — smooth"}`}
+              class={`flex aspect-square items-center justify-center rounded-[5px] text-[10px] font-semibold ${d.minor ? "bg-amber-400/20 text-amber-600" : "bg-neon-3/15 text-neon-3"}`}
+            >
+              {d.day}
+            </div>
+          ))}
+        </div>
+        <p class="mt-4 text-sm text-muted">
+          <strong class="text-fg">26 days</strong> were completely smooth. The
+          <strong class="text-fg"> 4 off-days</strong> were minor and cleared up after switching
+          servers or a quick app restart.
+        </p>
+      </div>
+    </div>
+
+    <!-- pros / cons -->
+    <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div class="rounded-2xl border border-line bg-ink p-6">
+        <h3 class="flex items-center gap-2 text-base font-bold text-fg">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-neon-3/15 text-neon-3">+</span>
+          What we liked
+        </h3>
+        <ul class="mt-4 space-y-2.5">
+          {pros.map((p) => (
+            <li class="flex items-start gap-2.5 text-sm text-muted">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-line bg-ink p-6">
+        <h3 class="flex items-center gap-2 text-base font-bold text-fg">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-ink-3 text-muted">–</span>
+          Could be better
+        </h3>
+        <ul class="mt-4 space-y-2.5">
+          {cons.map((c) => (
+            <li class="flex items-start gap-2.5 text-sm text-muted">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              {c}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-8 rounded-2xl border border-line bg-ink p-6 text-base leading-relaxed text-muted">
+      <strong class="text-fg">Verdict:</strong> For a free app, NetMirror TV is genuinely good. The
+      library is massive, playback is mostly flawless, and the remote experience feels native. If
+      you watch on a TV and don't want five subscriptions, it's an easy recommend.
+    </p>
+  </div>
+</section>

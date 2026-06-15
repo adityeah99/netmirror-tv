@@ -1,0 +1,86 @@
+---
+import { DOWNLOAD_PAGE } from "../config";
+// Compare.astro — NetMirror TV vs other OTT platforms
+const ours = [
+  "Free forever — no subscription",
+  "50+ services in one single app",
+  "No signup, no account, no card",
+  "4K UHD streaming included",
+  "Offline downloads built in",
+  "Multi-language audio (Hindi, Tamil, Telugu…)",
+  "Minimal ads",
+];
+
+const theirs = [
+  "₹150–₹1,500+ per month — each",
+  "A separate app & login for every service",
+  "Account and payment required",
+  "4K only on the top-tier plan",
+  "Downloads limited or premium-only",
+  "Audio depends on the title",
+  "Ads even on some paid tiers",
+];
+---
+
+<section id="compare" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Comparison</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Most people don't really need five subscriptions.
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      You pay Netflix for one show, Prime for another, Hotstar for the cricket — and half of them
+      just sit there unused most months. It adds up fast. NetMirror TV puts all of it in one place,
+      without the monthly bills.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <!-- NetMirror TV -->
+      <div class="relative rounded-2xl border-2 border-neon bg-neon/[0.04] p-6 sm:p-8">
+        <span class="absolute -top-3 left-6 rounded-full bg-neon px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Free</span>
+        <h3 class="text-xl font-bold text-fg">NetMirror TV</h3>
+        <p class="mt-1 text-sm text-muted">Everything in one app</p>
+        <ul class="mt-6 space-y-3">
+          {ours.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-fg sm:text-base">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-neon-3/15">
+                <svg class="h-3.5 w-3.5 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Other OTT apps -->
+      <div class="rounded-2xl border border-line bg-ink p-6 sm:p-8">
+        <h3 class="text-xl font-bold text-fg">Other OTT apps</h3>
+        <p class="mt-1 text-sm text-muted">Netflix · Prime · Hotstar · Zee5…</p>
+        <ul class="mt-6 space-y-3">
+          {theirs.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-muted sm:text-base">
+              <span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink-3">
+                <svg class="h-3.5 w-3.5 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- savings callout -->
+    <div class="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-line bg-ink p-6 text-center sm:flex-row sm:text-left">
+      <p class="text-base text-muted">
+        Five OTT subscriptions can cost <span class="font-bold text-fg">₹10,000+ a year</span>.
+        NetMirror TV costs <span class="font-bold text-neon">₹0</span>.
+      </p>
+      <a
+        href={DOWNLOAD_PAGE}
+        class="glow-neon inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-neon px-6 py-3 text-sm font-bold text-white transition hover:brightness-105"
+      >
+        Download NetMirror TV — Free
+      </a>
+    </div>
+  </div>
+</section>

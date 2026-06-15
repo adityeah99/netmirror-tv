@@ -1,0 +1,54 @@
+---
+// Features.astro — NetMirror TV Features
+const features = [
+  {
+    icon: "🎬",
+    title: "HD, Full HD & 4K Streaming",
+    body: "Crystal clear picture quality with immersive audio. Enjoy your favorite content exactly the way it was meant to be seen — on the big screen.",
+  },
+  {
+    icon: "⚡",
+    title: "Fast & Stable Servers",
+    body: "Multiple high-speed servers ensure minimal buffering even during peak hours. Switch servers instantly if needed.",
+  },
+  {
+    icon: "⬇️",
+    title: "Offline Downloads",
+    body: "Download movies and shows directly on your TV storage and watch later without internet. Perfect for power cuts or travel.",
+  },
+  {
+    icon: "🛡️",
+    title: "Safe & Lightweight",
+    body: "Minimal permissions and optimized performance. Designed to run smoothly on all supported TV devices.",
+  },
+  {
+    icon: "🎮",
+    title: "Remote-Friendly Design",
+    body: "Fully optimized for TV remotes. Easy navigation, big buttons, and smooth scrolling — no mouse or keyboard needed.",
+  },
+  {
+    icon: "🔥",
+    title: "Firestick Ready",
+    body: "One-click installation support on Amazon Fire TV Stick. Works flawlessly with Downloader app.",
+  },
+];
+---
+
+<section id="features" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">NetMirror TV Features</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Everything you need for the big screen.
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map((f) => (
+        <div class="rounded-2xl border border-line bg-ink p-6 transition hover:border-neon/50">
+          <div class="text-3xl">{f.icon}</div>
+          <h3 class="mt-4 text-lg font-bold text-fg">{f.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

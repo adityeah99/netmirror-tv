@@ -1,0 +1,55 @@
+---
+// Install.astro — How to Install NetMirror TV
+const guides = [
+  {
+    device: "On Android TV",
+    icon: "📺",
+    steps: [
+      "Go to Settings → Security and enable Unknown Sources.",
+      "Download the latest NetMirror TV APK using the button above.",
+      "Open the downloaded file and tap Install.",
+      "Launch the app and start streaming.",
+    ],
+  },
+  {
+    device: "On Amazon Firestick",
+    icon: "🔥",
+    steps: [
+      "Install the Downloader app from Amazon App Store.",
+      "Go to Settings → My Fire TV → Developer Options and enable Install unknown apps.",
+      "Open Downloader and enter the download link.",
+      "Download, install, and open NetMirror TV.",
+    ],
+  },
+];
+---
+
+<section id="install" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">How to Install</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      How to Install NetMirror TV
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {guides.map((g) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6 sm:p-8">
+          <h3 class="flex items-center gap-2 text-xl font-bold text-fg">
+            <span class="text-2xl">{g.icon}</span>
+            {g.device}
+          </h3>
+          <ol class="mt-6 space-y-4">
+            {g.steps.map((step, i) => (
+              <li class="flex gap-4">
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon text-sm font-bold text-white">
+                  {i + 1}
+                </span>
+                <span class="pt-0.5 text-sm leading-relaxed text-muted">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

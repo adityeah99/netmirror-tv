@@ -1,0 +1,43 @@
+---
+// SupportedDevices.astro — device compatibility grid
+const devices = [
+  { icon: "🔥", name: "Fire TV Stick", note: "All Lite / 4K / Max" },
+  { icon: "📦", name: "Fire TV Cube", note: "Fire OS 6+" },
+  { icon: "📺", name: "Android TV", note: "Android TV 7.0+" },
+  { icon: "▶️", name: "Google TV", note: "Chromecast w/ Google TV" },
+  { icon: "📡", name: "Chromecast", note: "Cast from the app" },
+  { icon: "🟠", name: "Xiaomi / Mi TV", note: "PatchWall & stock" },
+  { icon: "🔴", name: "OnePlus TV", note: "Oxygen Play" },
+  { icon: "🎬", name: "Sony Bravia", note: "Android-based models" },
+  { icon: "🟡", name: "Realme / TCL / Hisense", note: "Android TV builds" },
+  { icon: "🎮", name: "Nvidia Shield", note: "Android TV Pro" },
+];
+---
+
+<section id="devices" class="bg-ink-2 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Compatibility</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Works on the TVs you already own
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      If it runs Android TV, Fire OS or Google TV, NetMirror TV runs on it. Here are the most common
+      supported devices.
+    </p>
+
+    <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      {devices.map((d) => (
+        <div class="flex flex-col items-center rounded-2xl border border-line bg-ink p-5 text-center transition hover:border-neon/50">
+          <span class="text-3xl">{d.icon}</span>
+          <h3 class="mt-3 text-sm font-bold text-fg">{d.name}</h3>
+          <p class="mt-1 text-xs text-muted">{d.note}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-8 text-sm text-muted">
+      Don't see your TV? If it's an <strong class="text-fg">Android-based Smart TV (7.0+)</strong>,
+      it'll almost certainly work — just sideload the APK.
+    </p>
+  </div>
+</section>

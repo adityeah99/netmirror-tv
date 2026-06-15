@@ -1,0 +1,63 @@
+---
+// Legal.astro — honest legality explainer (trust + AdSense-friendly)
+const points = [
+  {
+    icon: "🧩",
+    title: "It's a third-party aggregator",
+    body: "NetMirror TV is an independent app and is not affiliated with, endorsed by, or partnered with Netflix, Prime Video, Disney+ or any other service. The app itself is free to download and use.",
+  },
+  {
+    icon: "🌍",
+    title: "Laws vary by country",
+    body: "Streaming rules differ from one region to another. You're responsible for what you watch and for following the laws where you live.",
+  },
+  {
+    icon: "🔒",
+    title: "Privacy is recommended",
+    body: "For added privacy and security while streaming, we recommend using a reputable VPN. It keeps your activity private on any network.",
+  },
+];
+---
+
+<section id="legal" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Legal</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Is NetMirror TV legal?
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      A fair, honest answer — no hype.
+    </p>
+
+    <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      {points.map((p) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6">
+          <div class="text-2xl">{p.icon}</div>
+          <h3 class="mt-4 text-base font-bold text-fg">{p.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{p.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-6 rounded-2xl border border-line bg-ink-2 p-6 text-sm leading-relaxed text-muted">
+      If you prefer fully licensed content, official paid apps are always an option. NetMirror TV is
+      provided for informational and convenience purposes — please use it responsibly and in line
+      with your local laws.
+    </p>
+
+    <div class="mt-6 flex flex-col items-start justify-between gap-4 rounded-2xl border border-line bg-ink-2 p-6 sm:flex-row sm:items-center">
+      <p class="text-sm text-muted">
+        Questions, feedback or a <span class="font-semibold text-fg">removal request</span>? Reach us on Telegram.
+      </p>
+      <a
+        href="https://t.me/netflix_mirror_apk"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-ink px-5 py-2.5 text-sm font-bold text-fg transition hover:border-fg/30"
+      >
+        <svg class="h-4 w-4 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.6 18.9 19.05c-.23 1.01-.83 1.26-1.68.79l-4.64-3.42-2.24 2.16c-.25.25-.46.46-.93.46l.33-4.73 8.6-7.77c.37-.33-.08-.52-.58-.19L7.43 13.4l-4.58-1.43c-1-.31-1.01-1 .21-1.48l17.9-6.9c.83-.31 1.56.19 1.28 1.01z"/></svg>
+        Contact on Telegram
+      </a>
+    </div>
+  </div>
+</section>

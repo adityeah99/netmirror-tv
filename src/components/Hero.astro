@@ -1,0 +1,109 @@
+---
+import { DOWNLOAD_PAGE } from "../config";
+// Hero.astro — NetMirror TV (clean light, asymmetric + real Smart TV mockup)
+const APP = "NetMirror TV";
+const VERSION = "v2.0.8";
+
+const trust = [
+  { icon: "bolt", label: "No signup" },
+  { icon: "shield", label: "VirusTotal verified" },
+  { icon: "sparkle", label: "Up to 4K UHD" },
+  { icon: "check", label: "100% free" },
+];
+---
+
+<section class="relative overflow-hidden bg-ink">
+  <!-- subtle grid + soft bloom -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-[0.6] [background-image:linear-gradient(to_right,rgba(15,23,42,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.04)_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(80%_60%_at_70%_30%,#000,transparent)]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-[40rem] w-[40rem] translate-x-1/3 -translate-y-1/4 rounded-full bg-[radial-gradient(circle,rgba(245,53,74,0.14),transparent_65%)]"></div>
+
+  <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_1.05fr] lg:gap-10 lg:py-24">
+    <!-- Left: copy (left-aligned editorial) -->
+    <div class="text-center lg:text-left">
+      <span class="inline-flex items-center gap-2 rounded-full border border-line bg-ink px-4 py-1.5 text-xs font-semibold tracking-wide text-muted shadow-sm">
+        <span class="h-1.5 w-1.5 rounded-full bg-neon"></span>
+        {APP} APK {VERSION} · Fire TV · Android TV · Smart TV
+      </span>
+
+      <h1 class="mt-6 text-5xl font-extrabold leading-[1.02] tracking-tight text-fg sm:text-6xl lg:text-[4.2rem]">
+        {APP} turns your TV into a <span class="text-neon">cinema.</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted lg:mx-0">
+        Stream <span class="font-semibold text-fg">500K+ movies, web series & live TV</span> in 4K
+        from 50+ services — one app for Fire TV Stick, Android TV & Smart TV.
+        <span class="font-semibold text-fg">No signup, no subscription.</span>
+      </p>
+
+      <div class="mt-9 flex flex-col items-center gap-3 sm:flex-row lg:items-start lg:justify-start">
+        <a
+          href={DOWNLOAD_PAGE}
+          class="glow-neon inline-flex w-full items-center justify-center gap-2 rounded-full bg-neon px-7 py-3.5 text-base font-bold text-white transition hover:brightness-105 sm:w-auto"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download {APP} APK
+        </a>
+        <a
+          href="#install"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-line bg-ink px-7 py-3.5 text-base font-semibold text-fg shadow-sm transition hover:bg-ink-2 sm:w-auto"
+        >
+          Firestick setup guide →
+        </a>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm font-medium text-muted lg:justify-start">
+        {trust.map((t) => (
+          <li class="flex items-center gap-1.5">
+            <svg class="h-4 w-4 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              {t.icon === "bolt" && <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>}
+              {t.icon === "shield" && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>}
+              {t.icon === "sparkle" && <path d="M12 3l1.9 5.8L19 10l-5.1 1.2L12 17l-1.9-5.8L5 10l5.1-1.2L12 3z"/>}
+              {t.icon === "check" && <polyline points="20 6 9 17 4 12"/>}
+            </svg>
+            {t.label}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Right: tilted Smart TV with bias lighting -->
+    <div class="relative mx-auto w-full max-w-xl lg:max-w-none">
+      <!-- ambient bias-light glow behind TV -->
+      <div aria-hidden="true" class="pointer-events-none absolute left-1/2 top-1/2 h-[26rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(245,53,74,0.35),rgba(245,53,74,0.08),transparent)] blur-2xl"></div>
+
+      <div class="relative [perspective:1600px]">
+        <div class="origin-center transition-transform duration-500 lg:[transform:rotateY(-14deg)_rotateX(3deg)]">
+          <!-- TV body -->
+          <div class="rounded-[1.25rem] border border-[#1c1c22] bg-gradient-to-b from-[#15151a] to-[#0a0a0d] p-2.5 shadow-[0_40px_80px_-30px_rgba(15,23,42,0.55)]">
+            <div class="overflow-hidden rounded-[0.7rem] bg-black ring-1 ring-white/5">
+              <img src="/screens/hero-tv.jpg" alt="NetMirror TV running on a Smart TV" width="1280" height="720" class="w-full" />
+            </div>
+          </div>
+          <!-- stand -->
+          <div class="mx-auto h-6 w-2 bg-gradient-to-b from-[#15151a] to-[#0a0a0d]"></div>
+          <div class="mx-auto h-1.5 w-44 rounded-full bg-[#101015] shadow-lg"></div>
+        </div>
+
+        <!-- floating remote -->
+        <div class="absolute -bottom-4 -left-2 w-16 rounded-2xl border border-line bg-ink p-2.5 shadow-xl sm:-left-6 sm:w-20">
+          <div class="mx-auto mb-2 flex h-5 w-5 items-center justify-center rounded-full bg-neon">
+            <span class="h-2 w-2 rounded-full bg-white"></span>
+          </div>
+          <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-line">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-neon text-[7px] font-bold text-white">OK</span>
+          </div>
+          <div class="mt-2 text-center text-[7px] font-bold uppercase tracking-wider text-muted">Remote</div>
+        </div>
+
+        <!-- floating rating chip -->
+        <div class="absolute -right-2 top-6 flex items-center gap-2 rounded-2xl border border-line bg-ink px-3 py-2 shadow-xl sm:-right-5">
+          <span class="text-lg font-extrabold text-neon-3">8.4</span>
+          <span class="text-left text-[10px] leading-tight text-muted">
+            <span class="block font-semibold text-fg">30-Day Test</span>
+            verified
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

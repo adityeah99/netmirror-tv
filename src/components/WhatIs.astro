@@ -1,0 +1,40 @@
+---
+// WhatIs.astro — "What is NetMirror TV?"
+const supported = [
+  "Movies (Hollywood, Bollywood & Regional)",
+  "Web Series & TV Shows",
+  "Anime & Korean Dramas",
+  "Live TV Channels",
+  "Sports & Live Events",
+  "Trending OTT Releases",
+];
+---
+
+<section id="about" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">What is NetMirror TV?</p>
+
+    <div class="mt-5 max-w-3xl space-y-4 text-base leading-relaxed text-muted sm:text-lg">
+      <p>
+        <strong class="text-fg">NetMirror TV</strong> is the big-screen optimized version of
+        NetMirror, specially built for Android TV, Firestick, Google TV, and Smart TVs.
+      </p>
+      <p>
+        Stop squinting at a small mobile screen — get the full cinematic experience on the big TV
+        at home. Movies, web series, anime, live sports, Korean dramas and trending OTT content,
+        all in one app, with no subscription.
+      </p>
+    </div>
+
+    <!-- Supported content -->
+    <h3 class="mt-12 text-lg font-bold text-fg">Supported Content</h3>
+    <ul class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {supported.map((c) => (
+        <li class="flex items-center gap-3 rounded-xl border border-line bg-ink-2 px-4 py-3 text-sm font-medium text-fg/90">
+          <svg class="h-4 w-4 shrink-0 text-neon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          {c}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

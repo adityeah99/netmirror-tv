@@ -1,0 +1,38 @@
+---
+// Safe.astro — Is NetMirror TV Safe?
+const points = [
+  { icon: "🛡️", title: "Minimal permissions", body: "Built lightweight — it only asks for what it needs to stream and download." },
+  { icon: "✅", title: "Download from trusted sources", body: "Always grab the APK from the official link to avoid tampered copies." },
+  { icon: "🔒", title: "Use a VPN for extra privacy", body: "A good VPN is recommended while streaming for added security and privacy." },
+];
+---
+
+<section id="safety" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Safety</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Is NetMirror TV Safe?
+    </h2>
+
+    <div class="mt-6 flex items-start gap-4 rounded-2xl border border-neon-3/30 bg-neon-3/5 p-6">
+      <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neon-3/15">
+        <svg class="h-5 w-5 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+      <p class="text-base leading-relaxed text-fg/90 sm:text-lg">
+        <strong class="text-fg">Yes.</strong> NetMirror TV is built lightweight with minimal permissions.
+        Always download from trusted sources. For extra privacy and security, using a good VPN is
+        recommended while streaming.
+      </p>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      {points.map((p) => (
+        <div class="rounded-2xl border border-line bg-ink-2 p-6">
+          <div class="text-2xl">{p.icon}</div>
+          <h3 class="mt-4 text-base font-bold text-fg">{p.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

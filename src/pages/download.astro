@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import DownloadCenter from "../components/DownloadCenter.astro";
+import { APK_URL } from "../config";
+
+const VERSION = "2.0.8";
+const APK_SIZE = "49 MB";
+const trust = ["VirusTotal verified", "SHA-256 published", "No signup", "100% free"];
+---
+
+<Layout
+  title="Download NetMirror TV APK (Free) — Fire TV, Android TV & Smart TV"
+  description="Download the latest NetMirror TV APK free. VirusTotal verified, SHA-256 published, no signup. For Fire TV Stick, Android TV, Google TV and Smart TVs."
+>
+  <Navbar />
+  <main id="top">
+    <!-- download hero -->
+    <section class="relative overflow-hidden bg-ink py-16 sm:py-24">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 -top-40 h-[34rem] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(245,53,74,0.12)_0%,rgba(245,53,74,0)_70%)]"></div>
+
+      <div class="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
+        <img src="/logo.png" alt="NetMirror TV" class="mx-auto h-16 w-16 rounded-2xl object-cover shadow-lg" />
+        <h1 class="mt-6 text-3xl font-extrabold tracking-tight text-fg sm:text-4xl">
+          Your NetMirror TV download is ready
+        </h1>
+        <p class="mt-3 text-base text-muted">
+          Version {VERSION} · {APK_SIZE} · for Fire TV, Android TV & Smart TV
+        </p>
+
+        <!-- download card -->
+        <div class="mt-8 rounded-2xl border border-line bg-ink-2 p-6 sm:p-8">
+          <div class="flex items-center gap-3 text-left">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-2xl shadow-sm">📦</span>
+            <div>
+              <p class="text-sm font-bold text-fg">NetMirror-v2.0.4-universal.apk</p>
+              <p class="text-xs text-muted">{APK_SIZE} · Android 7.0+</p>
+            </div>
+          </div>
+
+          <a
+            id="dl"
+            href={APK_URL}
+            download
+            rel="noopener nofollow"
+            class="glow-neon mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-neon px-7 py-4 text-base font-bold text-white transition hover:brightness-105"
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download APK · {APK_SIZE}
+          </a>
+
+          <p class="mt-4 text-sm text-muted">
+            Tap the button above to download the latest NetMirror TV APK.
+          </p>
+
+          <ul class="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted">
+            {trust.map((t) => (
+              <li class="flex items-center gap-1.5">
+                <svg class="h-4 w-4 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <a href="/" class="mt-6 inline-block text-sm font-medium text-muted transition hover:text-fg">← Back to home</a>
+      </div>
+    </section>
+
+    <!-- device-specific + install steps (these buttons download the real APK) -->
+    <DownloadCenter href={APK_URL} />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NetMirror TV">
+  <defs>
+    <linearGradient id="nmRed" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#ff4646"/>
+      <stop offset="0.55" stop-color="#ec1c2b"/>
+      <stop offset="1" stop-color="#b50d18"/>
+    </linearGradient>
+  </defs>
+  <!-- left post -->
+  <polygon points="14,16 39,16 39,104 14,104" fill="url(#nmRed)"/>
+  <!-- right post -->
+  <polygon points="81,16 106,16 106,104 81,104" fill="url(#nmRed)"/>
+  <!-- diagonal (top-left to bottom-right) -->
+  <polygon points="14,16 39,16 106,104 81,104" fill="url(#nmRed)"/>
+  <!-- fold highlight along the diagonal -->
+  <polygon points="39,16 50,16 106,89 106,104 95,104" fill="#ffffff" opacity="0.18"/>
+  <!-- soft top highlight on posts -->
+  <polygon points="14,16 39,16 39,30 14,30" fill="#ffffff" opacity="0.12"/>
+  <polygon points="81,16 106,16 106,30 81,30" fill="#ffffff" opacity="0.12"/>
+</svg>

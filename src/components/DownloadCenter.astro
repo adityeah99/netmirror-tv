@@ -1,0 +1,77 @@
+---
+import { DOWNLOAD_PAGE } from "../config";
+// DownloadCenter.astro — device-wise download + quick install
+// `href` defaults to the download page; the /download page passes the real APK.
+const { href = DOWNLOAD_PAGE } = Astro.props;
+const APK_SIZE = "49 MB";
+const devices = [
+  { icon: "🔥", name: "Fire TV Stick", spec: "Fire OS 6.0+", note: "Optimized for the Firestick remote" },
+  { icon: "📺", name: "Android TV", spec: "Android TV 7.0+", note: "Native big-screen build" },
+  { icon: "▶️", name: "Google TV", spec: "Google TV", note: "Chromecast with Google TV ready" },
+  { icon: "🖥️", name: "Smart TV", spec: "Android-based TVs", note: "Mi TV, OnePlus, Sony & more" },
+];
+const steps = [
+  { n: 1, t: "Allow unknown apps", d: "In Settings → Security, turn on installs from unknown sources." },
+  { n: 2, t: `Download the ${APK_SIZE} APK`, d: "Tap the download button for your device above." },
+  { n: 3, t: "Install & start watching", d: "Open the file, tap Install, launch the app — done." },
+];
+const trust = ["VirusTotal verified", "SHA-256 published", "No signup", `${APK_SIZE} APK`];
+---
+
+<section id="download" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Download</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Download NetMirror TV for your device
+    </h2>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      Pick your device and grab the latest <strong class="text-fg">{APK_SIZE} APK</strong>. Same app,
+      tuned for each screen — installs in under two minutes.
+    </p>
+
+    <!-- device cards -->
+    <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {devices.map((d) => (
+        <div class="flex flex-col rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
+          <div class="text-3xl">{d.icon}</div>
+          <h3 class="mt-4 text-lg font-bold text-fg">{d.name}</h3>
+          <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-neon">{d.spec}</p>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">{d.note}</p>
+          <a
+            href={href}
+            class="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-neon px-4 py-2.5 text-sm font-bold text-white transition hover:brightness-105"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download · {APK_SIZE}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- trust row -->
+    <ul class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-muted">
+      {trust.map((t) => (
+        <li class="flex items-center gap-1.5">
+          <svg class="h-4 w-4 text-neon-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          {t}
+        </li>
+      ))}
+    </ul>
+
+    <!-- quick install -->
+    <div class="mt-12 rounded-2xl border border-line bg-ink-2 p-6 sm:p-8">
+      <h3 class="text-lg font-bold text-fg">Install in 3 quick steps</h3>
+      <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {steps.map((s) => (
+          <div class="flex gap-4">
+            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neon text-sm font-bold text-white">{s.n}</span>
+            <div>
+              <h4 class="text-sm font-bold text-fg">{s.t}</h4>
+              <p class="mt-1 text-sm leading-relaxed text-muted">{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

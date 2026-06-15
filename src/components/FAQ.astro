@@ -1,0 +1,50 @@
+---
+// FAQ.astro — accordion (native <details>, no JS)
+const faqs = [
+  {
+    q: "Does NetMirror TV work on Android TV?",
+    a: "Yes — it runs smoothly on Android TV with a remote-friendly interface.",
+  },
+  {
+    q: "Can I install it on Firestick?",
+    a: "Yes. NetMirror TV is specially optimized for Amazon Fire TV Stick and installs easily with the Downloader app.",
+  },
+  {
+    q: "Is Smart TV supported?",
+    a: "It works on Android-based Smart TVs and Google TV devices.",
+  },
+  {
+    q: "Is 4K streaming possible?",
+    a: "Yes — some servers support 4K. You'll need a high-speed internet connection for the best quality.",
+  },
+  {
+    q: "Is NetMirror TV completely free?",
+    a: "Yes. There's no subscription, no signup and no payment required.",
+  },
+  {
+    q: "Are live TV channels available?",
+    a: "Yes — live TV channels and sports streaming are available inside the app.",
+  },
+];
+---
+
+<section id="faq" class="bg-ink py-20 sm:py-24">
+  <div class="mx-auto max-w-3xl px-5 sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">FAQ</p>
+    <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+      Frequently Asked Questions
+    </h2>
+
+    <div class="mt-10 space-y-3">
+      {faqs.map((f) => (
+        <details class="group rounded-2xl border border-line bg-ink-2 px-5 py-4 transition open:border-neon/40 [&_svg]:open:rotate-45">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-fg">
+            {f.q}
+            <svg class="h-5 w-5 shrink-0 text-neon transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-muted">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

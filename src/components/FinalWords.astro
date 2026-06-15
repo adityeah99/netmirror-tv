@@ -1,0 +1,41 @@
+---
+import { DOWNLOAD_PAGE } from "../config";
+// FinalWords.astro — closing section + CTA
+const APK_SIZE = "49 MB";
+---
+
+<section id="final" class="relative overflow-hidden bg-ink-2 py-20 sm:py-28">
+  <!-- red ambient bloom -->
+  <div aria-hidden="true" class="pointer-events-none absolute left-1/2 top-0 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-neon/10 blur-[130px]"></div>
+
+  <div class="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <p class="text-sm font-semibold uppercase tracking-widest text-neon">Final Words</p>
+    <h2 class="mt-3 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+      Time to move from the small screen to the big screen.
+    </h2>
+    <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+      If you love watching movies and series on the big screen, NetMirror TV is the perfect solution.
+      Control it with your remote, watch in 4K, grab offline downloads and enjoy with family — all
+      without any paid subscription.
+    </p>
+
+    <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a
+        href={DOWNLOAD_PAGE}
+        class="glow-neon inline-flex w-full items-center justify-center gap-2 rounded-xl bg-neon px-8 py-4 text-base font-bold text-white transition hover:brightness-110 sm:w-auto"
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download NetMirror TV APK · {APK_SIZE}
+      </a>
+      <a
+        href="https://t.me/netflix_mirror_apk"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-line bg-ink px-8 py-4 text-base font-semibold text-fg transition hover:border-fg/30 hover:bg-ink-3 sm:w-auto"
+      >
+        <svg class="h-5 w-5 text-[#229ED9]" viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.6 18.9 19.05c-.23 1.01-.83 1.26-1.68.79l-4.64-3.42-2.24 2.16c-.25.25-.46.46-.93.46l.33-4.73 8.6-7.77c.37-.33-.08-.52-.58-.19L7.43 13.4l-4.58-1.43c-1-.31-1.01-1 .21-1.48l17.9-6.9c.83-.31 1.56.19 1.28 1.01z"/></svg>
+        Join Telegram Group
+      </a>
+    </div>
+  </div>
+</section>
