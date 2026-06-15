@@ -1,18 +1,19 @@
 ---
+import Icon from "./Icon.astro";
 // Legal.astro — honest legality explainer (trust + AdSense-friendly)
 const points = [
   {
-    icon: "🧩",
+    icon: "puzzle",
     title: "It's a third-party aggregator",
     body: "NetMirror TV is an independent app and is not affiliated with, endorsed by, or partnered with Netflix, Prime Video, Disney+ or any other service. The app itself is free to download and use.",
   },
   {
-    icon: "🌍",
+    icon: "globe",
     title: "Laws vary by country",
     body: "Streaming rules differ from one region to another. You're responsible for what you watch and for following the laws where you live.",
   },
   {
-    icon: "🔒",
+    icon: "lock",
     title: "Privacy is recommended",
     body: "For added privacy and security while streaming, we recommend using a reputable VPN. It keeps your activity private on any network.",
   },
@@ -32,7 +33,9 @@ const points = [
     <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
       {points.map((p) => (
         <div class="rounded-2xl border border-line bg-ink-2 p-6">
-          <div class="text-2xl">{p.icon}</div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-ink text-neon">
+            <Icon name={p.icon} class="h-5 w-5" />
+          </div>
           <h3 class="mt-4 text-base font-bold text-fg">{p.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{p.body}</p>
         </div>

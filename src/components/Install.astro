@@ -3,7 +3,7 @@
 const guides = [
   {
     device: "On Android TV",
-    icon: "📺",
+    logo: "/brands/android.svg",
     steps: [
       "Go to Settings → Security and enable Unknown Sources.",
       "Download the latest NetMirror TV APK using the button above.",
@@ -13,7 +13,7 @@ const guides = [
   },
   {
     device: "On Amazon Firestick",
-    icon: "🔥",
+    logo: "/brands/amazon.svg",
     steps: [
       "Install the Downloader app from Amazon App Store.",
       "Go to Settings → My Fire TV → Developer Options and enable Install unknown apps.",
@@ -34,8 +34,8 @@ const guides = [
     <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
       {guides.map((g) => (
         <div class="rounded-2xl border border-line bg-ink-2 p-6 sm:p-8">
-          <h3 class="flex items-center gap-2 text-xl font-bold text-fg">
-            <span class="text-2xl">{g.icon}</span>
+          <h3 class="flex items-center gap-3 text-xl font-bold text-fg">
+            <img src={g.logo} alt="" class="h-6 w-6 object-contain" />
             {g.device}
           </h3>
           <ol class="mt-6 space-y-4">

@@ -1,18 +1,19 @@
 ---
+import Icon from "./Icon.astro";
 // Features.astro — NetMirror TV main features (TV-optimised)
 const features = [
-  { icon: "🖥️", title: "TV-redesigned UI", body: "A clean layout built for the big screen — a left sidebar for Home, Movies, Series and all OTT sources." },
-  { icon: "🃏", title: "Big poster tiles", body: "Posters 2–3× larger than the phone app, so you can read titles clearly from across the room." },
-  { icon: "🎮", title: "D-pad & remote control", body: "Every element is focusable. Drive the whole app with your remote's arrow keys — no mouse or keyboard." },
-  { icon: "🎯", title: "Red glow focus ring", body: "A bright focus ring shows exactly what you're about to select, so you never lose your place." },
-  { icon: "🔤", title: "Large fonts & subtitles", body: "Big, readable text and subtitles tuned for comfortable viewing from the couch." },
-  { icon: "📺", title: "Up to 1080p Full HD", body: "Crisp Full HD streaming that intelligently upscales on 4K TVs." },
-  { icon: "🎚️", title: "Quality picker", body: "Switch between Auto, 480p, 720p and 1080p anytime, right from the player." },
-  { icon: "🗣️", title: "15+ audio languages", body: "Hindi, Tamil, Telugu, English, Spanish, Portuguese, Turkish, German and more." },
-  { icon: "🆓", title: "Free, no signup", body: "Completely free forever. No account, no login, no payment — just open and watch." },
-  { icon: "🔋", title: "No phone battery drain", body: "Runs directly on your TV, so it never touches your phone's battery." },
-  { icon: "🛡️", title: "VirusTotal verified", body: "Scanned across 65 engines (63/65 clean), with the SHA-256 hash published for every release." },
-  { icon: "📲", title: "Cast from phone", body: "Don't want to install the APK? Cast from your phone to the TV instead." },
+  { icon: "tv", title: "TV-redesigned UI", body: "A clean layout built for the big screen — a left sidebar for Home, Movies, Series and all OTT sources." },
+  { icon: "layout-grid", title: "Big poster tiles", body: "Posters 2–3× larger than the phone app, so you can read titles clearly from across the room." },
+  { icon: "gamepad-2", title: "D-pad & remote control", body: "Every element is focusable. Drive the whole app with your remote's arrow keys — no mouse or keyboard." },
+  { icon: "focus", title: "Red glow focus ring", body: "A bright focus ring shows exactly what you're about to select, so you never lose your place." },
+  { icon: "captions", title: "Large fonts & subtitles", body: "Big, readable text and subtitles tuned for comfortable viewing from the couch." },
+  { icon: "monitor-play", title: "Up to 1080p Full HD", body: "Crisp Full HD streaming that intelligently upscales on 4K TVs." },
+  { icon: "sliders-horizontal", title: "Quality picker", body: "Switch between Auto, 480p, 720p and 1080p anytime, right from the player." },
+  { icon: "languages", title: "15+ audio languages", body: "Hindi, Tamil, Telugu, English, Spanish, Portuguese, Turkish, German and more." },
+  { icon: "gift", title: "Free, no signup", body: "Completely free forever. No account, no login, no payment — just open and watch." },
+  { icon: "battery", title: "No phone battery drain", body: "Runs directly on your TV, so it never touches your phone's battery." },
+  { icon: "shield-check", title: "VirusTotal verified", body: "Scanned across 65 engines (63/65 clean), with the SHA-256 hash published for every release." },
+  { icon: "cast", title: "Cast from phone", body: "Don't want to install the APK? Cast from your phone to the TV instead." },
 ];
 ---
 
@@ -39,7 +40,9 @@ const features = [
     <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {features.map((f) => (
         <div class="rounded-2xl border border-line bg-ink p-6 transition hover:border-neon/50">
-          <div class="text-3xl">{f.icon}</div>
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ink-2 text-neon">
+            <Icon name={f.icon} class="h-6 w-6" />
+          </div>
           <h3 class="mt-4 text-lg font-bold text-fg">{f.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
         </div>

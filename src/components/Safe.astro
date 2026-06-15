@@ -1,9 +1,10 @@
 ---
+import Icon from "./Icon.astro";
 // Safe.astro — Is NetMirror TV Safe?
 const points = [
-  { icon: "🛡️", title: "Minimal permissions", body: "Built lightweight — it only asks for what it needs to stream and download." },
-  { icon: "✅", title: "Download from trusted sources", body: "Always grab the APK from the official link to avoid tampered copies." },
-  { icon: "🔒", title: "Use a VPN for extra privacy", body: "A good VPN is recommended while streaming for added security and privacy." },
+  { icon: "shield", title: "Minimal permissions", body: "Built lightweight — it only asks for what it needs to stream and download." },
+  { icon: "badge-check", title: "Download from trusted sources", body: "Always grab the APK from the official link to avoid tampered copies." },
+  { icon: "lock", title: "Use a VPN for extra privacy", body: "A good VPN is recommended while streaming for added security and privacy." },
 ];
 ---
 
@@ -28,7 +29,9 @@ const points = [
     <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
       {points.map((p) => (
         <div class="rounded-2xl border border-line bg-ink-2 p-6">
-          <div class="text-2xl">{p.icon}</div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-ink text-neon-3">
+            <Icon name={p.icon} class="h-5 w-5" />
+          </div>
           <h3 class="mt-4 text-base font-bold text-fg">{p.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{p.body}</p>
         </div>

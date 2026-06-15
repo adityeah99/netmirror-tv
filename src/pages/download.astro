@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import DownloadCenter from "../components/DownloadCenter.astro";
+import Icon from "../components/Icon.astro";
 import { APK_URL } from "../config";
 
 const VERSION = "2.0.8";
@@ -32,7 +33,9 @@ const trust = ["VirusTotal verified", "SHA-256 published", "No signup", "100% fr
         <!-- download card -->
         <div class="mt-8 rounded-2xl border border-line bg-ink-2 p-6 sm:p-8">
           <div class="flex items-center gap-3 text-left">
-            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-2xl shadow-sm">📦</span>
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-neon shadow-sm">
+              <Icon name="package" class="h-6 w-6" />
+            </span>
             <div>
               <p class="text-sm font-bold text-fg">NetMirror-v2.0.4-universal.apk</p>
               <p class="text-xs text-muted">{APK_SIZE} · Android 7.0+</p>

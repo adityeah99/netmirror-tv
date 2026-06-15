@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { TELEGRAM_URL } from "../config";
+import Icon from "../components/Icon.astro";
 
 const topics = [
-  { icon: "❓", title: "General questions", body: "Not sure how something works or which build to install? Ask away." },
-  { icon: "💡", title: "Feedback & suggestions", body: "Got an idea to make NetMirror TV better? We genuinely read every message." },
-  { icon: "🐞", title: "Bugs & issues", body: "Something not working right? Tell us your device and what happened." },
-  { icon: "⚖️", title: "Content removal", body: "Rights holders can send takedown / removal requests and we'll act on them." },
+  { icon: "circle-help", title: "General questions", body: "Not sure how something works or which build to install? Ask away." },
+  { icon: "lightbulb", title: "Feedback & suggestions", body: "Got an idea to make NetMirror TV better? We genuinely read every message." },
+  { icon: "bug", title: "Bugs & issues", body: "Something not working right? Tell us your device and what happened." },
+  { icon: "scale", title: "Content removal", body: "Rights holders can send takedown / removal requests and we'll act on them." },
 ];
 ---
 
@@ -37,7 +38,9 @@ const topics = [
         <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {topics.map((t) => (
             <div class="rounded-2xl border border-line bg-ink-2 p-5">
-              <div class="text-2xl">{t.icon}</div>
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-ink text-neon">
+                <Icon name={t.icon} class="h-5 w-5" />
+              </div>
               <h3 class="mt-3 text-base font-bold text-fg">{t.title}</h3>
               <p class="mt-1 text-sm leading-relaxed text-muted">{t.body}</p>
             </div>

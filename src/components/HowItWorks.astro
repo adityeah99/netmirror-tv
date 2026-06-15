@@ -1,9 +1,10 @@
 ---
+import Icon from "./Icon.astro";
 // HowItWorks.astro — 3-step overview
 const steps = [
-  { n: 1, icon: "⬇️", title: "Download", body: "Grab the 49 MB NetMirror TV APK for your device from the download button." },
-  { n: 2, icon: "⚙️", title: "Install", body: "Allow unknown apps, open the file and tap Install — it takes under two minutes." },
-  { n: 3, icon: "▶️", title: "Watch", body: "Open the app, pick a movie or show, and start streaming in up to 4K." },
+  { n: 1, icon: "download", title: "Download", body: "Grab the 49 MB NetMirror TV APK for your device from the download button." },
+  { n: 2, icon: "settings-2", title: "Install", body: "Allow unknown apps, open the file and tap Install — it takes under two minutes." },
+  { n: 3, icon: "play", title: "Watch", body: "Open the app, pick a movie or show, and start streaming in up to 4K." },
 ];
 ---
 
@@ -17,7 +18,9 @@ const steps = [
     <div class="relative mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
       {steps.map((s) => (
         <div class="relative rounded-2xl border border-line bg-ink-2 p-6 text-center">
-          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-ink text-2xl shadow-sm">{s.icon}</div>
+          <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-ink text-neon shadow-sm">
+            <Icon name={s.icon} class="h-7 w-7" />
+          </div>
           <div class="mt-4 text-xs font-bold uppercase tracking-widest text-neon">Step {s.n}</div>
           <h3 class="mt-1 text-lg font-bold text-fg">{s.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{s.body}</p>

@@ -1,23 +1,24 @@
 ---
+import Icon from "./Icon.astro";
 // CommonIssues.astro — Common Issues & Quick Fixes
 const issues = [
   {
-    icon: "📶",
+    icon: "wifi",
     problem: "Buffering Problems",
     fixes: ["Use faster Wi-Fi", "Switch streaming server", "Lower quality temporarily"],
   },
   {
-    icon: "🚫",
+    icon: "circle-x",
     problem: "App Not Opening",
     fixes: ["Restart TV", "Reinstall app", "Clear cache"],
   },
   {
-    icon: "⬛",
+    icon: "monitor-off",
     problem: "Black Screen",
     fixes: ["Update the app", "Change server", "Check TV compatibility"],
   },
   {
-    icon: "🎮",
+    icon: "gamepad-2",
     problem: "Remote Not Working Properly",
     fixes: ["Update Android TV system", "Restart app", "Re-pair remote"],
   },
@@ -38,7 +39,9 @@ const issues = [
       {issues.map((it) => (
         <div class="rounded-2xl border border-line bg-ink p-6 transition hover:border-neon/50">
           <div class="flex items-center gap-3">
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink-3 text-xl">{it.icon}</span>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink-3 text-neon">
+              <Icon name={it.icon} class="h-5 w-5" />
+            </span>
             <h3 class="text-lg font-bold text-fg">{it.problem}</h3>
           </div>
           <ul class="mt-5 space-y-2.5">

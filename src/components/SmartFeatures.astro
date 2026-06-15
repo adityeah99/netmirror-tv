@@ -1,18 +1,19 @@
 ---
+import Icon from "./Icon.astro";
 // SmartFeatures.astro — advanced app-level features
 const features = [
-  { icon: "🗂️", title: "Unified multi-OTT library", body: "Netflix, Prime, Hotstar, Zee5 and 50+ platforms in one place. Duplicate titles are merged with 'Available on' badges." },
-  { icon: "🔍", title: "Universal smart search", body: "One search bar scans every platform. Filter by language, year, IMDb rating, runtime and mood." },
-  { icon: "✨", title: "AI 'For You' picks", body: "Smart suggestions from your watch history and favourite genres — 'Because you watched…' rows that actually fit." },
-  { icon: "🎭", title: "Mood & quick discovery", body: "One-tap moods like Chill Night, Binge Weekend, Intense Thriller and Family Time to find something fast." },
-  { icon: "📄", title: "Rich title pages", body: "Full synopsis, cast with photos, crew, aggregated ratings, a trailer button and a similar-titles carousel." },
-  { icon: "⏯️", title: "Continue watching & sync", body: "A progress carousel on home, synced across TV, web and app with an optional lightweight account." },
-  { icon: "🆕", title: "Just dropped & trending", body: "Same-day releases highlighted, plus a real cross-platform Top 10 — global and regional." },
-  { icon: "👨‍👩‍👧", title: "Profiles & parental controls", body: "Separate profiles for the family, PIN protection, age-rating locks and a kids mode." },
-  { icon: "📋", title: "Playlists & collections", body: "Build your own lists like 'My 2026 Must-Watch' and share them with a link." },
-  { icon: "🔁", title: "Intelligent server failover", body: "If one server slows down, the app auto-switches to a backup so playback never stalls." },
-  { icon: "💬", title: "Custom subtitles & audio", body: "Switch audio tracks live and style subtitles — font size, colour, background opacity and position." },
-  { icon: "📉", title: "Low data mode", body: "Auto-lower quality and compressed thumbnails for slow networks — a data saver tuned for India." },
+  { icon: "library", title: "Unified multi-OTT library", body: "Netflix, Prime, Hotstar, Zee5 and 50+ platforms in one place. Duplicate titles are merged with 'Available on' badges." },
+  { icon: "search", title: "Universal smart search", body: "One search bar scans every platform. Filter by language, year, IMDb rating, runtime and mood." },
+  { icon: "sparkles", title: "AI 'For You' picks", body: "Smart suggestions from your watch history and favourite genres — 'Because you watched…' rows that actually fit." },
+  { icon: "smile", title: "Mood & quick discovery", body: "One-tap moods like Chill Night, Binge Weekend, Intense Thriller and Family Time to find something fast." },
+  { icon: "file-text", title: "Rich title pages", body: "Full synopsis, cast with photos, crew, aggregated ratings, a trailer button and a similar-titles carousel." },
+  { icon: "circle-play", title: "Continue watching & sync", body: "A progress carousel on home, synced across TV, web and app with an optional lightweight account." },
+  { icon: "trending-up", title: "Just dropped & trending", body: "Same-day releases highlighted, plus a real cross-platform Top 10 — global and regional." },
+  { icon: "users", title: "Profiles & parental controls", body: "Separate profiles for the family, PIN protection, age-rating locks and a kids mode." },
+  { icon: "list-video", title: "Playlists & collections", body: "Build your own lists like 'My 2026 Must-Watch' and share them with a link." },
+  { icon: "server", title: "Intelligent server failover", body: "If one server slows down, the app auto-switches to a backup so playback never stalls." },
+  { icon: "message-square", title: "Custom subtitles & audio", body: "Switch audio tracks live and style subtitles — font size, colour, background opacity and position." },
+  { icon: "gauge", title: "Low data mode", body: "Auto-lower quality and compressed thumbnails for slow networks — a data saver tuned for India." },
 ];
 ---
 
@@ -30,7 +31,9 @@ const features = [
     <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {features.map((f) => (
         <div class="rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-2xl shadow-sm">{f.icon}</div>
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-neon shadow-sm">
+            <Icon name={f.icon} class="h-6 w-6" />
+          </div>
           <h3 class="mt-5 text-lg font-bold text-fg">{f.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
         </div>

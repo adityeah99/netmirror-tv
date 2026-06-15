@@ -1,23 +1,24 @@
 ---
+import Icon from "./Icon.astro";
 // Tips.astro — Pro Tips (troubleshooting-style cards)
 const tips = [
   {
-    icon: "🖼️",
+    icon: "image",
     title: "Get the Best Picture Quality",
     points: ["Set quality to 1080p / 4K in Settings", "Use a 5GHz Wi-Fi network", "Connect your TV to the router via LAN for 4K"],
   },
   {
-    icon: "🔋",
+    icon: "battery-low",
     title: "Save Data on Limited Plans",
     points: ["Turn on Data Saver", "Cap streaming at 720p", "Download on Wi-Fi, watch offline later"],
   },
   {
-    icon: "⚡",
+    icon: "zap",
     title: "Faster, Smoother Playback",
     points: ["Pick the Recommended server first", "Close background apps on your TV", "Restart the app once a week"],
   },
   {
-    icon: "🎯",
+    icon: "navigation",
     title: "Make Navigation Easier",
     points: ["Add favourites to My List", "Set your Preferred audio once", "Turn on subtitles by default"],
   },
@@ -38,7 +39,9 @@ const tips = [
       {tips.map((t) => (
         <div class="rounded-2xl border border-line bg-ink-2 p-6 transition hover:border-neon/50">
           <div class="flex items-center gap-3">
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink text-xl shadow-sm">{t.icon}</span>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ink text-neon shadow-sm">
+              <Icon name={t.icon} class="h-5 w-5" />
+            </span>
             <h3 class="text-lg font-bold text-fg">{t.title}</h3>
           </div>
           <ul class="mt-5 space-y-2.5">
